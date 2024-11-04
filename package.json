@@ -1,0 +1,19 @@
+{
+  "name": "matter-test",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@project-chip/matter.js": "~0.11.2",
+    "@project-chip/matter-node.js": "~0.11.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.8.7",
+    "tsx": "^4.19.2",
+    "typescript": "^5.5.3"
+  },
+  "private": true
+}
