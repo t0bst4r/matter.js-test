@@ -18,7 +18,7 @@ environment.set(
 );
 
 const location = path.join(process.cwd(), ".storage");
-fs.mkdirSync(location, { recursive: true });
+fs.mkdirSync(location, {recursive: true});
 
 const storageService = environment.get(StorageService);
 storageService.location = location;
@@ -33,3 +33,11 @@ const bridge = new Bridge({
 
 await bridge.start();
 
+let i = 2;
+setInterval(async () => {
+    await bridge.updateDevices({
+        device_1: {
+            first: i++
+        }
+    })
+}, 2000);

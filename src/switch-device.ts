@@ -18,6 +18,11 @@ export class SwitchDevice extends MatterDevice<typeof SwitchDeviceType> {
                         six: 6,
                         seven: "seven"
                     }
+                },
+                connection: {
+                    callAction: () => {
+                        console.log(id);
+                    }
                 }
             }
         });

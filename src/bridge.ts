@@ -6,6 +6,8 @@ import {Endpoint} from "@project-chip/matter.js/endpoint";
 import {SwitchDevice} from "./switch-device.js";
 import crypto from "node:crypto";
 import {VendorId} from "@project-chip/matter.js/datatype";
+import {CustomBehavior} from "./custom-behavior.js";
+import {Behavior} from "@project-chip/matter.js/behavior";
 
 export interface BridgeProps {
     readonly environment: Environment;
@@ -70,11 +72,11 @@ export class Bridge {
         }
     }
 
-    async updateDevices(states: Record<string, Record<string, string>>) {
-        const entities = Object.values(states);
-        for (const entity of entities) {
-            const device = this.matterDevices[entity["entity_id"]];
-            await device?.update(entity);
+    async updateDevices(states: Record<string, Behavior.PatchStateOf<typeof CustomBehavior>>) {
+        const entities = Object.entries(states);
+        for (const [key, value] of entities) {
+            const device = this.matterDevices[key];
+            await device?.update(value);
         }
     }
 
