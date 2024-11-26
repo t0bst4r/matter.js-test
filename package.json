@@ -4,11 +4,11 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "start": "tsx src/index.ts"
+    "start:dynamic-devices": "npm run build && node dist/dynamic-devices/index.js"
   },
   "dependencies": {
-    "@project-chip/matter.js": "~0.11.2",
-    "@project-chip/matter-node.js": "~0.11.2"
+    "@matter/main": "~0.11.5",
+    "@matter/nodejs": "~0.11.5"
   },
   "devDependencies": {
     "@types/node": "^22.8.7",
